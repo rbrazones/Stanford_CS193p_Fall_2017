@@ -39,27 +39,27 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vty-bC-Ikz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMi-kT-vNP">
                                                                 <rect key="frame" x="61.333333333333329" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27A-Od-DM2">
                                                                 <rect key="frame" x="122.33333333333333" y="0.0" width="53.333333333333329" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sE3-Eo-3kE">
                                                                 <rect key="frame" x="183.66666666666666" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GF-HR-hfa">
                                                                 <rect key="frame" x="244.66666666666666" y="0.0" width="53.333333333333343" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCB-eO-mh6">
                                                                 <rect key="frame" x="306" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -68,27 +68,27 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTk-tX-IPy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz3-1Q-U1R">
                                                                 <rect key="frame" x="61.333333333333329" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtC-v3-Tq0">
                                                                 <rect key="frame" x="122.33333333333333" y="0.0" width="53.333333333333329" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt3-RN-W2h">
                                                                 <rect key="frame" x="183.66666666666666" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGy-E6-IcE">
                                                                 <rect key="frame" x="244.66666666666666" y="0.0" width="53.333333333333343" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj8-2T-H5H">
                                                                 <rect key="frame" x="306" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -97,27 +97,27 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-dk-dfp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFg-qG-Ckw">
                                                                 <rect key="frame" x="61.333333333333329" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQK-es-5Qy">
                                                                 <rect key="frame" x="122.33333333333333" y="0.0" width="53.333333333333329" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12q-Vm-Alh">
                                                                 <rect key="frame" x="183.66666666666666" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mI-gm-1sE">
                                                                 <rect key="frame" x="244.66666666666666" y="0.0" width="53.333333333333343" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7Q-mo-6xu">
                                                                 <rect key="frame" x="306" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -126,27 +126,27 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4q-ln-niH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I56-7V-Htc">
                                                                 <rect key="frame" x="61.333333333333329" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei6-eM-mK4">
                                                                 <rect key="frame" x="122.33333333333333" y="0.0" width="53.333333333333329" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fce-Lk-brJ">
                                                                 <rect key="frame" x="183.66666666666666" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPd-tg-Fh9">
                                                                 <rect key="frame" x="244.66666666666666" y="0.0" width="53.333333333333343" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xU3-FZ-XKQ">
                                                                 <rect key="frame" x="306" y="0.0" width="53" height="150"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -176,6 +176,33 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="dealCardsButton" destination="aAC-Ga-Whs" id="jBi-eY-hyK"/>
+                        <outletCollection property="setCardButtons" destination="vty-bC-Ikz" collectionClass="NSMutableArray" id="R5m-Iq-yPb"/>
+                        <outletCollection property="setCardButtons" destination="zMi-kT-vNP" collectionClass="NSMutableArray" id="lEa-8z-fM5"/>
+                        <outletCollection property="setCardButtons" destination="eCB-eO-mh6" collectionClass="NSMutableArray" id="0id-cM-Efd"/>
+                        <outletCollection property="setCardButtons" destination="27A-Od-DM2" collectionClass="NSMutableArray" id="77I-me-EMc"/>
+                        <outletCollection property="setCardButtons" destination="sE3-Eo-3kE" collectionClass="NSMutableArray" id="clq-FM-5m7"/>
+                        <outletCollection property="setCardButtons" destination="6GF-HR-hfa" collectionClass="NSMutableArray" id="AJG-Cj-ZLg"/>
+                        <outletCollection property="setCardButtons" destination="aj8-2T-H5H" collectionClass="NSMutableArray" id="0pj-RA-GTv"/>
+                        <outletCollection property="setCardButtons" destination="PGy-E6-IcE" collectionClass="NSMutableArray" id="9VP-t3-DI6"/>
+                        <outletCollection property="setCardButtons" destination="Zt3-RN-W2h" collectionClass="NSMutableArray" id="jC5-Hu-INS"/>
+                        <outletCollection property="setCardButtons" destination="KtC-v3-Tq0" collectionClass="NSMutableArray" id="3uV-Oc-qN0"/>
+                        <outletCollection property="setCardButtons" destination="Hz3-1Q-U1R" collectionClass="NSMutableArray" id="d7o-Cr-4dt"/>
+                        <outletCollection property="setCardButtons" destination="PTk-tX-IPy" collectionClass="NSMutableArray" id="Lgs-sa-3rQ"/>
+                        <outletCollection property="setCardButtons" destination="e7Q-mo-6xu" collectionClass="NSMutableArray" id="ct9-I6-ygX"/>
+                        <outletCollection property="setCardButtons" destination="8mI-gm-1sE" collectionClass="NSMutableArray" id="ZTY-Ea-o3b"/>
+                        <outletCollection property="setCardButtons" destination="12q-Vm-Alh" collectionClass="NSMutableArray" id="032-6j-DgW"/>
+                        <outletCollection property="setCardButtons" destination="HQK-es-5Qy" collectionClass="NSMutableArray" id="RrU-cZ-Hxe"/>
+                        <outletCollection property="setCardButtons" destination="kFg-qG-Ckw" collectionClass="NSMutableArray" id="TA3-Ij-rD5"/>
+                        <outletCollection property="setCardButtons" destination="yu2-dk-dfp" collectionClass="NSMutableArray" id="tBi-Ud-g5M"/>
+                        <outletCollection property="setCardButtons" destination="xU3-FZ-XKQ" collectionClass="NSMutableArray" id="3Oe-Nn-ZI8"/>
+                        <outletCollection property="setCardButtons" destination="XPd-tg-Fh9" collectionClass="NSMutableArray" id="BdI-38-uqr"/>
+                        <outletCollection property="setCardButtons" destination="fce-Lk-brJ" collectionClass="NSMutableArray" id="n0b-4G-tsc"/>
+                        <outletCollection property="setCardButtons" destination="Ei6-eM-mK4" collectionClass="NSMutableArray" id="TXZ-cr-29C"/>
+                        <outletCollection property="setCardButtons" destination="I56-7V-Htc" collectionClass="NSMutableArray" id="VUb-7A-NLm"/>
+                        <outletCollection property="setCardButtons" destination="h4q-ln-niH" collectionClass="NSMutableArray" id="EZX-lJ-cov"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
