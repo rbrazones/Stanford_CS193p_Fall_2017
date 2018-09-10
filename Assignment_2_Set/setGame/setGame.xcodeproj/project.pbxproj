@@ -12,6 +12,8 @@
 		94F3D84F213E0A7600C345A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F3D84D213E0A7600C345A0 /* Main.storyboard */; };
 		94F3D851213E0A7B00C345A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F3D850213E0A7B00C345A0 /* Assets.xcassets */; };
 		94F3D854213E0A7B00C345A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F3D852213E0A7B00C345A0 /* LaunchScreen.storyboard */; };
+		94F3D85D2140C87300C345A0 /* setCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3D85C2140C87300C345A0 /* setCard.swift */; };
+		94F3D85F2140C88C00C345A0 /* setGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3D85E2140C88C00C345A0 /* setGameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		94F3D850213E0A7B00C345A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94F3D853213E0A7B00C345A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94F3D855213E0A7B00C345A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94F3D85C2140C87300C345A0 /* setCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setCard.swift; sourceTree = "<group>"; };
+		94F3D85E2140C88C00C345A0 /* setGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setGameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,9 @@
 				94F3D84D213E0A7600C345A0 /* Main.storyboard */,
 				94F3D852213E0A7B00C345A0 /* LaunchScreen.storyboard */,
 				94F3D855213E0A7B00C345A0 /* Info.plist */,
+				94F3D85C2140C87300C345A0 /* setCard.swift */,
 				94F3D85B213E0AA500C345A0 /* Supporting Files */,
+				94F3D85E2140C88C00C345A0 /* setGameModel.swift */,
 			);
 			path = setGame;
 			sourceTree = "<group>";
@@ -143,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F3D85F2140C88C00C345A0 /* setGameModel.swift in Sources */,
 				94F3D84C213E0A7600C345A0 /* ViewController.swift in Sources */,
+				94F3D85D2140C87300C345A0 /* setCard.swift in Sources */,
 				94F3D84A213E0A7600C345A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

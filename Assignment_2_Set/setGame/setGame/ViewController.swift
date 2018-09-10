@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         // set all cards to have rounded corners
         for index in setCardButtons.indices {
             setCardButtons[index].layer.cornerRadius = 8.0
+            setCardButtons[index].layer.borderWidth = 5.0
+            setCardButtons[index].layer.borderColor = UIColor.white.cgColor
             setCardButtons[index].titleLabel?.numberOfLines = 0
         }
         dealCardsButton.layer.cornerRadius = 8.0
@@ -33,8 +35,29 @@ class ViewController: UIViewController {
 
     }
     
-    private var mapButtonsToCards = Dictionary<Int, Int>()
+    @IBAction func touchCardButton(_ sender: UIButton) {
+        
+        assert(gameModel.selectedCards.count <= 3, "ViewController.touchCardButton: We can only select 3 cards at max")
+        
+        let buttonIndex = setCardButtons.index(of: sender)!
+        if mapButtonsToCards[buttonIndex] != nil {
+            
+            let cardIndex = mapButtonsToCards[buttonIndex]!
+            if gameModel.selectedCards.count == 3 && !gameModel.selectedCards.contains(cardIndex) {
+                return // do nothing
+            } else {
+                gameModel.attemptToSelect(on: cardIndex)
+            }
+        }
+        
+        updateViewFromModel()
+    }
     
+    @IBAction func touchDealMoreCardsButton(_ sender: UIButton) {
+        gameModel.dealMoreCards()
+        updateViewFromModel()
+    }
+    private var mapButtonsToCards = Dictionary<Int, Int>()
     
     private func updateViewFromModel(){
     
@@ -109,6 +132,8 @@ class ViewController: UIViewController {
         
         for value in gameModel.currentCards {
 
+            // TODO: add a check to remove mappings once cards have been matched
+            
             // check if we need to assign game card to a button, or if
             // such a mapping already exists
             
@@ -118,13 +143,28 @@ class ViewController: UIViewController {
         }
         
         // update the buttons
+        // - cards display the correct contents
+        // - selected cards will be indicated
         for index in setCardButtons.indices {
-            setCardButtons[index].backgroundColor =  mapButtonsToCards[index] != nil ?  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-            
+            // check if the button currently maps to a card
             if mapButtonsToCards[index] != nil {
+                let cardIndex = mapButtonsToCards[index]!
+                setCardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 drawShapesOnCard(on: index)
+                
+                // now check if that card is currently selected
+                if gameModel.selectedCards.contains(cardIndex) {
+                    setCardButtons[index].layer.borderColor = UIColor.orange.cgColor
+                } else {
+                    setCardButtons[index].layer.borderColor = UIColor.white.cgColor
+                }
+            } else {
+                setCardButtons[index].backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+                setCardButtons[index].layer.borderColor = UIColor.clear.cgColor
             }
         }
+        
+        // determine if the "deal more cards" button needs to be enabled or disabled
         
     }
     

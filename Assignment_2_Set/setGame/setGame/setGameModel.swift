@@ -35,35 +35,58 @@ class setGameModel {
         }
     }
     
-    func checkIfCardsMatched(cards indices: [Int]) -> Bool {
+    // Go through each of the 4 categories: number, shape, shade, color
+    // For a set to be matched, each category must be
+    // (1) all the same
+    // (2) or all different
+    func checkIfCardsMatched() -> Bool {
         
-        assert(indices.count == 3, "setGameModel.checkIfCardsMatched: invalid number of cards to compare")
+        assert(selectedCards.count == 3, "setGameModel.checkIfCardsMatched: invalid number of cards to compare")
         
-        let card1 = gameCards[indices[0]]
-        let card2 = gameCards[indices[1]]
-        let card3 = gameCards[indices[2]]
+        let card1 = gameCards[selectedCards[0]]
+        let card2 = gameCards[selectedCards[1]]
+        let card3 = gameCards[selectedCards[2]]
         
-        if (card1.color == card2.color) && (card2.color == card3.color) {
-            return true
-        }
-        
-        if (card1.shape == card2.shape) && (card2.shape == card3.shape) {
-            return true
-        }
-        
-        if (card1.shade == card2.shade) && (card2.shade == card3.shade) {
-            return true
-        }
-        
-        if (card1.number == card2.number) && (card2.number == card3.number) {
-            return true
-        }
-        
-        return false
+        let colorCheck = true
+        let numberCheck = true
+        let shapeCheck = true
+        let shadeCheck = true
+    
+        // match is based on all of the criteria
+        return (colorCheck && numberCheck) && (shapeCheck && shadeCheck)
     }
     
     func dealMoreCards() {
-        print("dealMoreCards()")
+        func actuallyDealThisMany(of cards: Int){
+            for _ in 1...cards {
+                let randomIndex = Int(arc4random_uniform(UInt32(availableCards.count)))
+                let tempInt = availableCards.remove(at: randomIndex)
+                currentCards += [tempInt]
+            }
+        }
+        
+        // check for a match if 3 cards are selected
+        if selectedCards.count == 3 {
+            
+        } else {
+            // deal 3 more cards
+            var numberOfCardsToDeal = 3
+            if availableCards.count < 3 {
+                numberOfCardsToDeal = availableCards.count
+            }
+            if numberOfCardsToDeal > 0 {
+                actuallyDealThisMany(of: numberOfCardsToDeal)
+            }
+        }
+    }
+    
+    func attemptToSelect(on card: Int){
+        if selectedCards.contains(card) {
+            let removeIndex = selectedCards.index(of: card)!
+            selectedCards.remove(at: removeIndex)
+        } else {
+            selectedCards += [card]
+        }
     }
     
     func startNewGame() {
