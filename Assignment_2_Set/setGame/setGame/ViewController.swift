@@ -27,8 +27,9 @@ class ViewController: UIViewController {
             setCardButtons[index].titleLabel?.numberOfLines = 0
         }
         dealCardsButton.layer.cornerRadius = 8.0
-        
-        
+        dealCardsButton.layer.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1).withAlphaComponent(1.00).cgColor
+        dealCardsButton.layer.borderWidth = 0.3
+        dealCardsButton.layer.borderColor = UIColor.black.cgColor
         updateViewFromModel()
         // debug - trigger lazy
         //gameModel.dealMoreCards()
@@ -54,6 +55,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchDealMoreCardsButton(_ sender: UIButton) {
+        
+        // invalidate button to card mappings if we have a match
+        if gameModel.selectedCards.count == 3 && gameModel.checkIfCardsMatched() {
+            for index in gameModel.selectedCards.indices {
+                let removeKeys = mapButtonsToCards.keysForValues(value: gameModel.selectedCards[index])
+                for key in removeKeys {
+                    mapButtonsToCards.removeValue(forKey: key)
+                }
+            }
+        }
+        
         gameModel.dealMoreCards()
         updateViewFromModel()
     }
@@ -127,6 +139,31 @@ class ViewController: UIViewController {
             setCardButtons[card].setAttributedTitle(attributedString, for: UIControlState.normal)
         }
         
+        func enableDealButton() {
+            dealCardsButton.isEnabled = true
+            dealCardsButton.layer.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1).withAlphaComponent(1.00).cgColor
+        }
+        
+        func disabledDealButton() {
+            dealCardsButton.isEnabled = false
+            dealCardsButton.layer.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1).withAlphaComponent(0.5).cgColor
+        }
+        
+        // check if the deal 3 more cards button should even be enabled
+        if gameModel.currentCards.count <= 21 {
+            enableDealButton()
+        } else {
+            if gameModel.selectedCards.count == 3 {
+                if gameModel.checkIfCardsMatched() {
+                    enableDealButton()
+                } else {
+                    disabledDealButton()
+                }
+            } else {
+                disabledDealButton()
+            }
+        }
+        
         // some way to check if the there are enough buttons to store
         // all of the available cards
         
@@ -182,6 +219,15 @@ class ViewController: UIViewController {
         static let cardShades = [setCard.shadeOptions.shadeA: "filled",
                                  setCard.shadeOptions.shadeB: "striped",
                                  setCard.shadeOptions.shadeC: "open"]
+    }
+}
+
+// https://ijoshsmith.com/2016/04/14/find-keys-by-value-in-swift-dictionary/
+extension Dictionary where Value: Equatable {
+    func keysForValues(value: Value) -> [Key] {
+        return compactMap {(key: Key, val: Value) -> Key? in
+            value == val ? key : nil
+        }
     }
 }
 

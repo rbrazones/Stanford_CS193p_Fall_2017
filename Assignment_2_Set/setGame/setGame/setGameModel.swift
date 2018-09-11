@@ -47,13 +47,20 @@ class setGameModel {
         let card2 = gameCards[selectedCards[1]]
         let card3 = gameCards[selectedCards[2]]
         
-        let colorCheck = true
-        let numberCheck = true
-        let shapeCheck = true
-        let shadeCheck = true
+        return setCard.formsSet(cardA: card1, cardB: card2, cardC: card3)
+    }
     
-        // match is based on all of the criteria
-        return (colorCheck && numberCheck) && (shapeCheck && shadeCheck)
+    private func clearMatchedCards() {
+        assert(selectedCards.count == 3, "setGameModel.clearMatchedCards: Matched set must contain 3 cards")
+        for _ in selectedCards.indices {
+            let matchedCard = selectedCards.remove(at: 0)
+            let removeIndex = currentCards.index(of: matchedCard)!
+            currentCards.remove(at: removeIndex)
+            matchedCards += [matchedCard]
+        }
+        
+        //matchedCards += selectedCards
+        //selectedCards.removeAll()
     }
     
     func dealMoreCards() {
@@ -67,17 +74,27 @@ class setGameModel {
         
         // check for a match if 3 cards are selected
         if selectedCards.count == 3 {
-            
+            if checkIfCardsMatched() {
+                clearMatchedCards()
+            }
+            print("Successful Match!")
         } else {
-            // deal 3 more cards
-            var numberOfCardsToDeal = 3
-            if availableCards.count < 3 {
-                numberOfCardsToDeal = availableCards.count
-            }
-            if numberOfCardsToDeal > 0 {
-                actuallyDealThisMany(of: numberOfCardsToDeal)
-            }
+            print("NOT A MATCH")
         }
+        
+        // deal 3 more cards
+        var numberOfCardsToDeal = 3
+        if availableCards.count < 3 {
+            numberOfCardsToDeal = availableCards.count
+        }
+        if numberOfCardsToDeal > 0 {
+            actuallyDealThisMany(of: numberOfCardsToDeal)
+        }
+        
+        print("Current cards = \(currentCards)")
+        print("Available cards = \(availableCards)")
+        print("Matched cards = \(matchedCards)")
+        print("Selected cards = \(selectedCards)")
     }
     
     func attemptToSelect(on card: Int){

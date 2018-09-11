@@ -53,4 +53,24 @@ struct setCard {
         self.shade = shading
         self.number = number
     }
+    
+    static func formsSet(cardA: setCard, cardB: setCard, cardC: setCard) -> Bool {
+        
+        func satisfiesSetCriteria(input1: String, input2: String, input3: String) -> Bool {
+            if (input1 == input2) && (input2 == input3) {
+                return true
+            } else if (input1 != input2) && (input2 != input3){
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        let shadeCheck = satisfiesSetCriteria(input1: cardA.shade.rawValue, input2: cardB.shade.rawValue, input3: cardC.shade.rawValue)
+        let shapeCheck = satisfiesSetCriteria(input1: cardA.shape.rawValue, input2: cardB.shape.rawValue, input3: cardC.shape.rawValue)
+        let numberCheck = satisfiesSetCriteria(input1: cardA.number.rawValue, input2: cardB.number.rawValue, input3: cardC.number.rawValue)
+        let colorCheck = satisfiesSetCriteria(input1: cardA.color.rawValue, input2: cardB.color.rawValue, input3: cardC.color.rawValue)
+        
+        return (shadeCheck && shapeCheck) && (numberCheck && colorCheck)
+    }
 }
