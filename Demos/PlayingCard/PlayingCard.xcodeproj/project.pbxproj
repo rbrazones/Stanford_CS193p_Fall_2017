@@ -11,10 +11,10 @@
 		942EBDC6212D45AD0081BD2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EBDC5212D45AD0081BD2C /* AppDelegate.swift */; };
 		942EBDC8212D45AD0081BD2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EBDC7212D45AD0081BD2C /* ViewController.swift */; };
 		942EBDCB212D45AD0081BD2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942EBDC9212D45AD0081BD2C /* Main.storyboard */; };
-		942EBDCD212D45B40081BD2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942EBDCC212D45B40081BD2C /* Assets.xcassets */; };
 		942EBDD0212D45B40081BD2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942EBDCE212D45B40081BD2C /* LaunchScreen.storyboard */; };
 		942EBDD9212D45F20081BD2C /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EBDD8212D45F20081BD2C /* PlayingCard.swift */; };
 		942EBDDB212D48870081BD2C /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EBDDA212D48870081BD2C /* PlayingCardDeck.swift */; };
+		94F3D8602148B04300C345A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942EBDCC212D45B40081BD2C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				942EBDD0212D45B40081BD2C /* LaunchScreen.storyboard in Resources */,
-				942EBDCD212D45B40081BD2C /* Assets.xcassets in Resources */,
+				94F3D8602148B04300C345A0 /* Assets.xcassets in Resources */,
 				942EBDCB212D45AD0081BD2C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

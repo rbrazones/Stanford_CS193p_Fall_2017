@@ -16,7 +16,7 @@ struct PlayingCard: CustomStringConvertible	 {
     
     enum Suit: String, CustomStringConvertible {
         case spades = "♠️"
-        case hearts = "♥️"
+        case hearts = "❤️"
         case diamonds = "♦️"
         case clubs = "♣️"
         
