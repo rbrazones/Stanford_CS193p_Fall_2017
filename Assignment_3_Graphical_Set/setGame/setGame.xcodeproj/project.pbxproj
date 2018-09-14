@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94AAD496214B8FB600D4E427 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AAD495214B8FB600D4E427 /* SetCardView.swift */; };
 		94F3D84A213E0A7600C345A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3D849213E0A7600C345A0 /* AppDelegate.swift */; };
 		94F3D84C213E0A7600C345A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3D84B213E0A7600C345A0 /* ViewController.swift */; };
 		94F3D84F213E0A7600C345A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F3D84D213E0A7600C345A0 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		94AAD495214B8FB600D4E427 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		94F3D846213E0A7600C345A0 /* setGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = setGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F3D849213E0A7600C345A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94F3D84B213E0A7600C345A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				94F3D84B213E0A7600C345A0 /* ViewController.swift */,
 				94F3D84D213E0A7600C345A0 /* Main.storyboard */,
+				94AAD495214B8FB600D4E427 /* SetCardView.swift */,
 				94F3D852213E0A7B00C345A0 /* LaunchScreen.storyboard */,
 				94F3D855213E0A7B00C345A0 /* Info.plist */,
 				94F3D85C2140C87300C345A0 /* setCard.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F3D85F2140C88C00C345A0 /* setGameModel.swift in Sources */,
+				94AAD496214B8FB600D4E427 /* SetCardView.swift in Sources */,
 				94F3D84C213E0A7600C345A0 /* ViewController.swift in Sources */,
 				94F3D85D2140C87300C345A0 /* setCard.swift in Sources */,
 				94F3D84A213E0A7600C345A0 /* AppDelegate.swift in Sources */,
