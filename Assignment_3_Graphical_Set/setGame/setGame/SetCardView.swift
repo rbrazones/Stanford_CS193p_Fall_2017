@@ -8,7 +8,7 @@
 
 import UIKit
 
-//@IBDesignable
+@IBDesignable
 class SetCardView: UIView {
     
     enum withShape: String {
@@ -29,7 +29,7 @@ class SetCardView: UIView {
     var color: UIColor = UIColor.purple { didSet { setNeedsDisplay() } }
     
     @IBInspectable
-    var number: Int = 1 { didSet { setNeedsDisplay() } }
+    var number: Int = 3 { didSet { setNeedsDisplay() } }
     
     @IBInspectable
     var isSelected: Bool = false { didSet {setNeedsDisplay()}}
@@ -40,8 +40,8 @@ class SetCardView: UIView {
     @IBInspectable
     var cardSelectOutlineColor: UIColor = UIColor.red { didSet{ setNeedsDisplay() }}
     
-    var shape: withShape = .diamond
-    var shade: withShade = .striped
+    var shape: withShape = .oval
+    var shade: withShade = .unfilled
     
     override func draw(_ rect: CGRect) {
         
@@ -52,36 +52,42 @@ class SetCardView: UIView {
         // the other shapes on the card.
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        
         drawCardBackground()
         
-        context.saveGState()
-        
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        drawDiamond(at: center)
-        //drawTestRect(at: center)
-        
-        context.restoreGState()
-        context.saveGState()
-        
-        let upperPoint = center.offsetBy(dx: 0, dy: -shapeHeight - (shapeHeight / 4.0))
-        drawOval(at: upperPoint)
-        //drawTestRect(at: upperPoint)
-        
-        context.restoreGState()
-        context.saveGState()
-        
-        let lowerPoint = center.offsetBy(dx: 0, dy: shapeHeight + (shapeHeight / 4.0))
-        drawSquiggle(at: lowerPoint)
-        //drawTestRect(at: lowerPoint)
-        
-        context.restoreGState()
+        let pointsToDrawShapes = determinePointsToDrawShapes()
+        for point in pointsToDrawShapes {
+            context.saveGState()
+            switch(shape){
+            case .oval: drawOval(at: point)
+            case .diamond: drawDiamond(at: point)
+            case .squiggle: drawSquiggle(at: point)
+            }
+            context.restoreGState()
+        }
     }
-
 }
 
 extension SetCardView {
 
+    private func determinePointsToDrawShapes() -> [CGPoint] {
+        var points = [CGPoint]()
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        switch(number){
+        case 1:
+            points += [center]
+        case 2:
+            let upperPoint = center.offsetBy(dx: 0, dy: -(shapeHeight * constantValues.shapeHeightToSpacingRatio) / 2)
+            let lowerPoint = center.offsetBy(dx: 0, dy: (shapeHeight * constantValues.shapeHeightToSpacingRatio) / 2)
+            points += [upperPoint, lowerPoint]
+        case 3:
+            let upperPoint = center.offsetBy(dx: 0, dy: -shapeHeight * constantValues.shapeHeightToSpacingRatio)
+            let lowerPoint = center.offsetBy(dx: 0, dy: shapeHeight * constantValues.shapeHeightToSpacingRatio)
+            points += [lowerPoint, center, upperPoint]
+        default: break
+        }
+        return points
+    }
+    
     private func drawTestRect(at point: CGPoint) {
         let test = UIBezierPath()
         let distanceToCenter = (shapeWidth / 2 - shapeHeight / 2)
@@ -229,6 +235,7 @@ extension SetCardView {
         static let shapeLineWidth: CGFloat = 3.0
         static let numberOfStripesToDraw: CGFloat = 25.0
         static let stripeLineWidth: CGFloat = 1.0
+        static let shapeHeightToSpacingRatio: CGFloat = 1.25
     }
     
     private var shapeHeight: CGFloat {
