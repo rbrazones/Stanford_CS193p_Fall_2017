@@ -12,22 +12,46 @@ class SetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViewFromModel()
+    }
+    
+    private var gameModel = setGameModel()
+    
+    @IBOutlet weak var setCardGridView: SetCardGridView!
+    
+    private var mapGameCardToSetCardViews = Dictionary<Int, SetCardView>()
+    
+}
+
+extension SetViewController {
+    
+    private func updateViewFromModel() {
+        for card in gameModel.currentCards {
+            if !mapGameCardToSetCardViews.keys.contains(card) {
+                let newCardView = SetCardView()
+                newCardView.shape = constantValues.cardShapes[gameModel.gameCards[card].shape]!
+                newCardView.shade = constantValues.cardShades[gameModel.gameCards[card].shade]!
+                newCardView.number = constantValues.cardNumbers[gameModel.gameCards[card].number]!
+                mapGameCardToSetCardViews[card] = newCardView
+                setCardGridView.currentCards += [newCardView]
+            }
+        }
     }
     
     // constant for drawing cards
     private struct constantValues {
-        static let cardShapes = [setCard.shapeOptions.shapeA: "▲" ,
-                                 setCard.shapeOptions.shapeB: "●",
-                                 setCard.shapeOptions.shapeC: "■"]
+        static let cardShapes = [setCard.shapeOptions.shapeA: SetCardView.withShape.oval,
+                                 setCard.shapeOptions.shapeB: SetCardView.withShape.diamond,
+                                 setCard.shapeOptions.shapeC: SetCardView.withShape.squiggle]
         static let cardNumbers = [setCard.numberOptions.numberA: 1,
                                   setCard.numberOptions.numberB: 2,
                                   setCard.numberOptions.numberC: 3]
-        static let cardColors = [setCard.colorOptions.colorA: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1),
-                                 setCard.colorOptions.colorB: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1),
-                                 setCard.colorOptions.colorC: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)]
-        static let cardShades = [setCard.shadeOptions.shadeA: "filled",
-                                 setCard.shadeOptions.shadeB: "striped",
-                                 setCard.shadeOptions.shadeC: "open"]
+        static let cardColors = [setCard.colorOptions.colorA: UIColor.red,
+                                 setCard.colorOptions.colorB: UIColor.purple,
+                                 setCard.colorOptions.colorC: UIColor.green]
+        static let cardShades = [setCard.shadeOptions.shadeA: SetCardView.withShade.solid,
+                                 setCard.shadeOptions.shadeB: SetCardView.withShade.striped,
+                                 setCard.shadeOptions.shadeC: SetCardView.withShade.unfilled]
     }
 }
 

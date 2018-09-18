@@ -6,8 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,22 +19,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hj-vc-Acp" customClass="SetCardView" customModule="setGame" customModuleProvider="target">
-                                <rect key="frame" x="127.66666666666667" y="250.66666666666663" width="159.66666666666663" height="255"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="scL-6H-MaZ">
+                                <rect key="frame" x="8" y="698" width="398" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyQ-sl-GPS">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhJ-cd-b6w">
+                                        <rect key="frame" x="203" y="0.0" width="195" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8Hj-vc-Acp" secondAttribute="height" multiplier="5:8" id="Tkx-Na-hmB"/>
-                                    <constraint firstAttribute="height" constant="255" id="Y52-Yj-3ep"/>
+                                    <constraint firstAttribute="height" constant="30" id="W9W-8t-osO"/>
                                 </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keX-6l-nQG">
+                                <rect key="frame" x="8" y="28" width="398" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qCy-6l-ap5" customClass="SetCardGridView" customModule="setGame" customModuleProvider="target">
+                                <rect key="frame" x="8" y="56" width="398" height="634"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.042308905018299585" green="0.2910255393862945" blue="0.057431100229159336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8Hj-vc-Acp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Hg3-zE-dW2"/>
-                            <constraint firstItem="8Hj-vc-Acp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NeH-5M-jOb"/>
+                            <constraint firstItem="scL-6H-MaZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="4DJ-ig-gEg"/>
+                            <constraint firstItem="scL-6H-MaZ" firstAttribute="top" secondItem="qCy-6l-ap5" secondAttribute="bottom" constant="8" id="8BZ-uH-Yzt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="scL-6H-MaZ" secondAttribute="bottom" constant="8" id="EEj-cQ-Q9l"/>
+                            <constraint firstItem="qCy-6l-ap5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="JDR-KL-UAz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="scL-6H-MaZ" secondAttribute="trailing" constant="8" id="Pc2-lU-RP9"/>
+                            <constraint firstItem="qCy-6l-ap5" firstAttribute="top" secondItem="keX-6l-nQG" secondAttribute="bottom" constant="8" id="R19-Pz-gQ9"/>
+                            <constraint firstItem="keX-6l-nQG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="eav-Xq-5lQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qCy-6l-ap5" secondAttribute="trailing" constant="8" id="olK-Ts-9Ey"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="keX-6l-nQG" secondAttribute="trailing" constant="8" id="s43-rq-3aS"/>
+                            <constraint firstItem="keX-6l-nQG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="uPn-NG-s26"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="setCardGridView" destination="qCy-6l-ap5" id="apF-eR-zB9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

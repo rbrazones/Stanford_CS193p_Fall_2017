@@ -26,7 +26,7 @@ class SetCardView: UIView {
     }
     
     @IBInspectable
-    var color: UIColor = UIColor.purple { didSet { setNeedsDisplay() } }
+    var color: UIColor = UIColor.green { didSet { setNeedsDisplay() } }
     
     @IBInspectable
     var number: Int = 3 { didSet { setNeedsDisplay() } }
@@ -40,8 +40,8 @@ class SetCardView: UIView {
     @IBInspectable
     var cardSelectOutlineColor: UIColor = UIColor.red { didSet{ setNeedsDisplay() }}
     
-    var shape: withShape = .oval
-    var shade: withShade = .unfilled
+    var shape: withShape = .squiggle
+    var shade: withShade = .striped
     
     override func draw(_ rect: CGRect) {
         
@@ -230,10 +230,10 @@ extension SetCardView {
     }
     
     private struct constantValues {
-        static let cardCornerRadius: CGFloat = 16.0
+        static let cardCornerRadius: CGFloat = 8.0
         static let cardSelectLineWidth: CGFloat = 7.5
-        static let shapeLineWidth: CGFloat = 3.0
-        static let numberOfStripesToDraw: CGFloat = 25.0
+        static let shapeLineWidth: CGFloat = 2.0
+        static let numberOfStripesToDraw: CGFloat = 12.0
         static let stripeLineWidth: CGFloat = 1.0
         static let shapeHeightToSpacingRatio: CGFloat = 1.25
     }
