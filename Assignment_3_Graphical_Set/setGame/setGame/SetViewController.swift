@@ -19,6 +19,10 @@ class SetViewController: UIViewController {
     
     @IBOutlet weak var setCardGridView: SetCardGridView!
     
+    @IBAction func touchDeal3CardsButton(_ sender: UIButton) {
+        gameModel.dealMoreCards()
+        updateViewFromModel()
+    }
     private var mapGameCardToSetCardViews = Dictionary<Int, SetCardView>()
     
 }
@@ -31,6 +35,7 @@ extension SetViewController {
                 let newCardView = SetCardView()
                 newCardView.shape = constantValues.cardShapes[gameModel.gameCards[card].shape]!
                 newCardView.shade = constantValues.cardShades[gameModel.gameCards[card].shade]!
+                newCardView.color = constantValues.cardColors[gameModel.gameCards[card].color]!
                 newCardView.number = constantValues.cardNumbers[gameModel.gameCards[card].number]!
                 mapGameCardToSetCardViews[card] = newCardView
                 setCardGridView.currentCards += [newCardView]
