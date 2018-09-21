@@ -10,17 +10,21 @@ import UIKit
 
 class SetViewController: UIViewController {
     
+    private var gameModel = setGameModel()
+    
+    @IBOutlet weak var setCardGridView: SetCardGridView!
+    @IBOutlet weak var dealCardsButton: UIButton!
+    @IBOutlet weak var MatchCardsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViewFromModel()
         setCardGridView.delegate = self
     }
     
-    
-    
-    private var gameModel = setGameModel()
-    
-    @IBOutlet weak var setCardGridView: SetCardGridView!
+    @IBAction func touchMatchCardsButton(_ sender: UIButton) {
+        
+    }
     
     @IBAction func touchDeal3CardsButton(_ sender: UIButton) {
         gameModel.dealMoreCards()
@@ -31,7 +35,6 @@ class SetViewController: UIViewController {
 
 extension SetViewController: TouchSetCardDelegate {
     func touchedSetCard(with currentCardIndex: Int) {
-        print("inside the TOP DOG with cardIndex = \(currentCardIndex)")
         let card = setCardGridView.currentCards[currentCardIndex]
         let mapGameCardIndex = mapGameCardToSetCardViews.keysForValues(value: card)
         for cardIndex in mapGameCardIndex {
@@ -48,6 +51,14 @@ extension SetViewController: TouchSetCardDelegate {
 extension SetViewController {
     
     private func updateViewFromModel() {
+        
+        func determineMatchButtonStatus() {
+            if gameModel.selectedCards.count == 3 {
+                // enable the button
+            } else {
+                // disable the button
+            }
+        }
         
         for card in gameModel.currentCards {
             if !mapGameCardToSetCardViews.keys.contains(card) {
