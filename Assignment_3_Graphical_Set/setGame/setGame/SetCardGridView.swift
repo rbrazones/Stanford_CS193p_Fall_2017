@@ -8,13 +8,20 @@
 
 import UIKit
 
-class SetCardGridView: UIView {
+class SetCardGridView: UIView, UIGestureRecognizerDelegate {
 
     var currentCards = [SetCardView]() { didSet{ setNeedsLayout() }}
+    
+    var delegate: TouchSetCardDelegate?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         layoutCards()
+    }
+    
+    // send the cardIndex to parent ViewController to be dealt with
+    @objc func handleTapOnCard(_ sender: AnyObject){
+        if let test = sender.view?.tag { delegate?.touchedSetCard(with: test) }
     }
 }
 
@@ -31,8 +38,10 @@ extension SetCardGridView {
         print("horizontal space = \(horinzontalSpacing)")
         print("vertical space = \(verticalSpacing)")
         
+        // layout points to place cards in advance based on how many
+        // cards we have to layout, and the determined spacing between
+        // those cards
         var points = [CGPoint]()
-        
         for j in 0..<rows {
             for i in 0..<columns {
                 points += [CGPoint(x: CGFloat(i) * (cardWidth + horinzontalSpacing),
@@ -40,12 +49,16 @@ extension SetCardGridView {
             }
         }
         
+        // layout the cards on the pre-determined points
         var temp = 0
-        
         for card in currentCards {
             card.frame.size = CGSize(width: cardWidth, height: cardHeight)
             addSubview(card)
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnCard))
+            gestureRecognizer.delegate = self
+            card.addGestureRecognizer(gestureRecognizer)
             card.frame.origin = points[temp]
+            card.tag = currentCards.index(of: card)!
             card.isOpaque = false
             temp += 1
         }

@@ -13,7 +13,10 @@ class SetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViewFromModel()
+        setCardGridView.delegate = self
     }
+    
+    
     
     private var gameModel = setGameModel()
     
@@ -24,12 +27,28 @@ class SetViewController: UIViewController {
         updateViewFromModel()
     }
     private var mapGameCardToSetCardViews = Dictionary<Int, SetCardView>()
-    
+}
+
+extension SetViewController: TouchSetCardDelegate {
+    func touchedSetCard(with currentCardIndex: Int) {
+        print("inside the TOP DOG with cardIndex = \(currentCardIndex)")
+        let card = setCardGridView.currentCards[currentCardIndex]
+        let mapGameCardIndex = mapGameCardToSetCardViews.keysForValues(value: card)
+        for cardIndex in mapGameCardIndex {
+            if gameModel.selectedCards.count == 3 && !gameModel.selectedCards.contains(cardIndex) {
+                return // do nothing
+            } else {
+                gameModel.attemptToSelect(on: cardIndex)
+            }
+        }
+        updateViewFromModel()
+    }
 }
 
 extension SetViewController {
     
     private func updateViewFromModel() {
+        
         for card in gameModel.currentCards {
             if !mapGameCardToSetCardViews.keys.contains(card) {
                 let newCardView = SetCardView()
@@ -39,6 +58,11 @@ extension SetViewController {
                 newCardView.number = constantValues.cardNumbers[gameModel.gameCards[card].number]!
                 mapGameCardToSetCardViews[card] = newCardView
                 setCardGridView.currentCards += [newCardView]
+            }
+            if gameModel.selectedCards.contains(card){
+                mapGameCardToSetCardViews[card]!.isSelected = true
+            } else {
+                mapGameCardToSetCardViews[card]!.isSelected = false
             }
         }
     }
@@ -67,5 +91,9 @@ extension Dictionary where Value: Equatable {
             value == val ? key : nil
         }
     }
+}
+
+protocol TouchSetCardDelegate {
+    func touchedSetCard(with currentCardIndex: Int)
 }
 
