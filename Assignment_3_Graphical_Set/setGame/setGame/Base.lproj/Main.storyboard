@@ -76,6 +76,7 @@
                     <connections>
                         <outlet property="MatchCardsButton" destination="lyQ-sl-GPS" id="JSH-5m-bel"/>
                         <outlet property="dealCardsButton" destination="FhJ-cd-b6w" id="enh-kL-fcs"/>
+                        <outlet property="scoreLabel" destination="keX-6l-nQG" id="cvk-gI-hkc"/>
                         <outlet property="setCardGridView" destination="qCy-6l-ap5" id="apF-eR-zB9"/>
                     </connections>
                 </viewController>

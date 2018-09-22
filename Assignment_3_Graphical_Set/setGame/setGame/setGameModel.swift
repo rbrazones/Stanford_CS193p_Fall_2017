@@ -15,6 +15,7 @@ class setGameModel {
     var availableCards = [Int]()
     var matchedCards = [Int]()
     var selectedCards = [Int]()
+    private(set) var score: Int = 0
     
     private func createDeckOfCards() {
         // fill deck with cards
@@ -59,6 +60,7 @@ class setGameModel {
             matchedCards += [matchedCard]
         }
         
+        score += 100
         //matchedCards += selectedCards
         //selectedCards.removeAll()
     }
@@ -104,6 +106,7 @@ class setGameModel {
         availableCards.removeAll()
         matchedCards.removeAll()
         selectedCards.removeAll()
+        score = 0
         
         // restart things
         createDeckOfCards()

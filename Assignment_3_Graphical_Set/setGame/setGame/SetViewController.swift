@@ -23,6 +23,7 @@ class SetViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var dealCardsButton: UIButton!
     @IBOutlet weak var MatchCardsButton: UIButton!
     
@@ -70,6 +71,7 @@ class SetViewController: UIViewController {
     @objc func handleRotationGesture(byReactingTo rotationRecgonizer: UIRotationGestureRecognizer){
         if rotationRecgonizer.state == .ended {
             print("rotation gesture ended")
+            setCardGridView.shuffleCards()
         }
     }
     
@@ -107,6 +109,10 @@ extension SetViewController {
             }
         }
         
+        func updateScore() {
+            scoreLabel.text = "Score: \(gameModel.score)"
+        }
+        
         func determineDealButtonStatus(){
             if gameModel.availableCards.count >= 3 {
                 // enable the button
@@ -138,6 +144,7 @@ extension SetViewController {
         
         determineMatchButtonStatus()
         determineDealButtonStatus()
+        updateScore()
     }
     
     // constant for drawing cards

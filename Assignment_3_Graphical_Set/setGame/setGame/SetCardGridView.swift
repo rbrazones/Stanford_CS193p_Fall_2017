@@ -35,6 +35,16 @@ extension SetCardGridView {
         setNeedsLayout()
     }
     
+    func shuffleCards() {
+        let numberOfCards = currentCards.count
+        for index in currentCards.indices {
+            var swapIndex = Int(arc4random_uniform(UInt32(numberOfCards - index)))
+            swapIndex += index
+            currentCards.swapAt(index, swapIndex)
+        }
+        setNeedsLayout()
+    }
+    
     private func layoutCards() {
         let (rows, columns) = determineOptimalRowsColumns()
         let (cardWidth, cardHeight) = determineCardDimensions(rows: rows, columns: columns)
