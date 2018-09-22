@@ -10,13 +10,14 @@ import UIKit
 
 class SetCardGridView: UIView, UIGestureRecognizerDelegate {
 
-    var currentCards = [SetCardView]() { didSet{ setNeedsLayout() }}
+    var currentCards = [SetCardView]() { didSet{ setNeedsLayout(); setNeedsDisplay() }}
     
     var delegate: TouchSetCardDelegate?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         layoutCards()
+        print("current number of cards = \(currentCards.count)")
     }
     
     // send the cardIndex to parent ViewController to be dealt with
@@ -27,16 +28,17 @@ class SetCardGridView: UIView, UIGestureRecognizerDelegate {
 
 extension SetCardGridView {
     
+    func removeCard(card: SetCardView) {
+        let removeIndex = currentCards.index(of: card)!
+        card.removeFromSuperview()
+        currentCards.remove(at: removeIndex)
+        setNeedsLayout()
+    }
+    
     private func layoutCards() {
         let (rows, columns) = determineOptimalRowsColumns()
         let (cardWidth, cardHeight) = determineCardDimensions(rows: rows, columns: columns)
         let (horinzontalSpacing, verticalSpacing) = determineBestSpacingBetweenCards(for: cardWidth, and: cardHeight, rows: rows, cols: columns)
-        
-        print("card width = \(cardWidth)")
-        print("card height = \(cardHeight)")
-        
-        print("horizontal space = \(horinzontalSpacing)")
-        print("vertical space = \(verticalSpacing)")
         
         // layout points to place cards in advance based on how many
         // cards we have to layout, and the determined spacing between
@@ -98,13 +100,6 @@ extension SetCardGridView {
             columns += 1
         }
         
-        print("bounds width = \(bounds.size.width)")
-        print("bounds height = \(bounds.size.height)")
-        print("number of cards = \(numberOfCards)")
-        print("columns unrounded = \(columnsUnrounded)")
-        print("columns rounded = \(columns)")
-        print("rows unrounded = \(numberOfCards / columnsUnrounded)")
-        print("rows rounded = \(rows)")
         return(Int(rows), Int(columns))
     }
     
@@ -115,9 +110,6 @@ extension SetCardGridView {
         //let effectiveHeight = bounds.size.height - (CGFloat(currentCards.count) - 1) * constants.minDistanceBetweenCards
         let effectiveWidth = bounds.size.width - (CGFloat(columns) - 1) * constants.minDistanceBetweenCards
         let effectiveHeight = bounds.size.height - (CGFloat(rows) - 1) * constants.minDistanceBetweenCards
-        
-        print("Effective Width = \(effectiveWidth)")
-        print("Effective Height = \(effectiveHeight)")
         
         // first try sizing the cards based off of width
         let possibleCardWidth = effectiveWidth / CGFloat(columns)

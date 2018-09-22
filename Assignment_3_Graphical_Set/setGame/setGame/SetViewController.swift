@@ -20,10 +20,29 @@ class SetViewController: UIViewController {
         super.viewDidLoad()
         updateViewFromModel()
         setCardGridView.delegate = self
+        
+        MatchCardsButton.layer.borderWidth = 2.0
+        MatchCardsButton.layer.borderColor = constantValues.buttonOutlineColor.cgColor
+        MatchCardsButton.layer.cornerRadius = 8.0
+        dealCardsButton.layer.borderWidth = 2.0
+        dealCardsButton.layer.borderColor = constantValues.buttonOutlineColor.cgColor
+        dealCardsButton.layer.cornerRadius = 8.0
     }
     
     @IBAction func touchMatchCardsButton(_ sender: UIButton) {
-        
+        if gameModel.checkIfCardsMatched() {
+            for card in setCardGridView.currentCards {
+                let removeKeys = mapGameCardToSetCardViews.keysForValues(value: card)
+                for key in removeKeys {
+                    mapGameCardToSetCardViews.removeValue(forKey: key)
+                }
+                //let removeIndex = setCardGridView.currentCards.index(of: card)!
+                //setCardGridView.currentCards.remove(at: removeIndex)
+                setCardGridView.removeCard(card: card)
+            }
+            gameModel.clearMatchedCards()
+            updateViewFromModel()
+        }
     }
     
     @IBAction func touchDeal3CardsButton(_ sender: UIButton) {
@@ -55,8 +74,24 @@ extension SetViewController {
         func determineMatchButtonStatus() {
             if gameModel.selectedCards.count == 3 {
                 // enable the button
+                MatchCardsButton.layer.backgroundColor = constantValues.matchButtonColor.withAlphaComponent(1.00).cgColor
+                MatchCardsButton.isEnabled = true
             } else {
                 // disable the button
+                MatchCardsButton.layer.backgroundColor = constantValues.matchButtonColor.withAlphaComponent(0.5).cgColor
+                MatchCardsButton.isEnabled = false
+            }
+        }
+        
+        func determineDealButtonStatus(){
+            if gameModel.availableCards.count >= 3 {
+                // enable the button
+                dealCardsButton.layer.backgroundColor = constantValues.dealCardsButtonColor.withAlphaComponent(1.00).cgColor
+                dealCardsButton.isEnabled = true
+            } else {
+                // disable the button
+                dealCardsButton.layer.backgroundColor = constantValues.dealCardsButtonColor.withAlphaComponent(0.5).cgColor
+                dealCardsButton.isEnabled = false
             }
         }
         
@@ -76,6 +111,9 @@ extension SetViewController {
                 mapGameCardToSetCardViews[card]!.isSelected = false
             }
         }
+        
+        determineMatchButtonStatus()
+        determineDealButtonStatus()
     }
     
     // constant for drawing cards
@@ -92,6 +130,9 @@ extension SetViewController {
         static let cardShades = [setCard.shadeOptions.shadeA: SetCardView.withShade.solid,
                                  setCard.shadeOptions.shadeB: SetCardView.withShade.striped,
                                  setCard.shadeOptions.shadeC: SetCardView.withShade.unfilled]
+        static let buttonOutlineColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        static let matchButtonColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        static let dealCardsButtonColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
     }
 }
 

@@ -50,7 +50,7 @@ class setGameModel {
         return setCard.formsSet(cardA: card1, cardB: card2, cardC: card3)
     }
     
-    private func clearMatchedCards() {
+    func clearMatchedCards() {
         assert(selectedCards.count == 3, "setGameModel.clearMatchedCards: Matched set must contain 3 cards")
         for _ in selectedCards.indices {
             let matchedCard = selectedCards.remove(at: 0)
@@ -73,14 +73,14 @@ class setGameModel {
         }
         
         // check for a match if 3 cards are selected
-        if selectedCards.count == 3 {
-            if checkIfCardsMatched() {
-                clearMatchedCards()
-            }
-            print("Successful Match!")
-        } else {
-            print("NOT A MATCH")
-        }
+//        if selectedCards.count == 3 {
+//            if checkIfCardsMatched() {
+//                clearMatchedCards()
+//            }
+//            print("Successful Match!")
+//        } else {
+//            print("NOT A MATCH")
+//        }
         
         // deal 3 more cards
         var numberOfCardsToDeal = 3
