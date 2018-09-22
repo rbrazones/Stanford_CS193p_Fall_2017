@@ -12,7 +12,17 @@ class SetViewController: UIViewController {
     
     private var gameModel = setGameModel()
     
-    @IBOutlet weak var setCardGridView: SetCardGridView!
+    @IBOutlet weak var setCardGridView: SetCardGridView! {
+        didSet {
+            let swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipDown(byReactingTo:)))
+            swipeDownRecognizer.direction = .down
+            setCardGridView.addGestureRecognizer(swipeDownRecognizer)
+            
+            let rotateRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotationGesture(byReactingTo:)))
+            setCardGridView.addGestureRecognizer(rotateRecognizer)
+        }
+    }
+    
     @IBOutlet weak var dealCardsButton: UIButton!
     @IBOutlet weak var MatchCardsButton: UIButton!
     
@@ -49,6 +59,20 @@ class SetViewController: UIViewController {
         gameModel.dealMoreCards()
         updateViewFromModel()
     }
+    
+    @objc func handleSwipDown(byReactingTo swipeRecognizer: UISwipeGestureRecognizer){
+        if swipeRecognizer.state == .ended {
+            gameModel.dealMoreCards()
+            updateViewFromModel()
+        }
+    }
+    
+    @objc func handleRotationGesture(byReactingTo rotationRecgonizer: UIRotationGestureRecognizer){
+        if rotationRecgonizer.state == .ended {
+            print("rotation gesture ended")
+        }
+    }
+    
     private var mapGameCardToSetCardViews = Dictionary<Int, SetCardView>()
 }
 

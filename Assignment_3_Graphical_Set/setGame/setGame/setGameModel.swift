@@ -72,16 +72,6 @@ class setGameModel {
             }
         }
         
-        // check for a match if 3 cards are selected
-//        if selectedCards.count == 3 {
-//            if checkIfCardsMatched() {
-//                clearMatchedCards()
-//            }
-//            print("Successful Match!")
-//        } else {
-//            print("NOT A MATCH")
-//        }
-        
         // deal 3 more cards
         var numberOfCardsToDeal = 3
         if availableCards.count < 3 {
