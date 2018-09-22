@@ -46,6 +46,11 @@ extension SetCardGridView {
     }
     
     private func layoutCards() {
+        
+        if currentCards.count == 0 {
+            return
+        }
+        
         let (rows, columns) = determineOptimalRowsColumns()
         let (cardWidth, cardHeight) = determineCardDimensions(rows: rows, columns: columns)
         let (horinzontalSpacing, verticalSpacing) = determineBestSpacingBetweenCards(for: cardWidth, and: cardHeight, rows: rows, cols: columns)
