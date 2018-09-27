@@ -41,7 +41,7 @@ class SetCardView: UIView {
     var cardSelectOutlineColor: UIColor = UIColor.red { didSet{ setNeedsDisplay() }}
     
     @IBInspectable
-    var isFaceUp: Bool = true
+    var isFaceUp: Bool = true { didSet { setNeedsDisplay() } }
     
     @IBInspectable
     var backsideColor: UIColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)

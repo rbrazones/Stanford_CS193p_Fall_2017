@@ -43,14 +43,10 @@ class SetViewController: UIViewController {
     
     @IBAction func touchMatchCardsButton(_ sender: UIButton) {
         if gameModel.checkIfCardsMatched() {
-            for card in setCardGridView.currentCards {
-                let removeKeys = mapGameCardToSetCardViews.keysForValues(value: card)
-                for key in removeKeys {
-                    mapGameCardToSetCardViews.removeValue(forKey: key)
-                }
-                //let removeIndex = setCardGridView.currentCards.index(of: card)!
-                //setCardGridView.currentCards.remove(at: removeIndex)
-                setCardGridView.removeCard(card: card)
+            for card in gameModel.selectedCards {
+                let removeCardView = mapGameCardToSetCardViews[card]!
+                mapGameCardToSetCardViews.removeValue(forKey: card)
+                setCardGridView.removeCard(card: removeCardView)
             }
             gameModel.clearMatchedCards()
             updateViewFromModel()

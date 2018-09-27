@@ -34,12 +34,13 @@ extension SetCardGridView {
         card.removeFromSuperview()
         currentCards.remove(at: removeIndex)
         
+        
         // fade out temporary animator
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
-                                                       delay: 0,
-                                                       options: [],
-                                                       animations: { card.alpha = 0 },
-                                                       completion: nil)
+//        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
+//                                                       delay: 0,
+//                                                       options: [],
+//                                                       animations: { card.alpha = 0 },
+//                                                       completion: nil)
         
         setNeedsLayout()
     }
@@ -80,10 +81,10 @@ extension SetCardGridView {
         
         let centerCardsOffset = (bounds.size.width - (2 * cardWidth + horinzontalSpacing)) / 2
         
-        let discardPilePoint = CGPoint(x: centerCardsOffset,
+        let drawNewCardPoint = CGPoint(x: centerCardsOffset,
                                        y: CGFloat(rows - 1) * (cardHeight + verticalSpacing))
         
-        let drawNewCardPoint = CGPoint(x: centerCardsOffset + cardWidth + horinzontalSpacing,
+        let discardPilePoint = CGPoint(x: centerCardsOffset + cardWidth + horinzontalSpacing,
                                        y: CGFloat(rows - 1) * (cardHeight + verticalSpacing))
         
         // place the discard and draw new card piles first
@@ -101,7 +102,7 @@ extension SetCardGridView {
             discardPile.frame.origin = discardPilePoint
             addSubview(discardPile)
         } else {
-            animateCardObject(on: discardPile, to: discardPilePoint, with: cardWidth, and: cardHeight)
+            animateCardObject(on: discardPile, to: discardPilePoint, with: cardWidth, and: cardHeight, with: 0)
         }
         
         if (!subviews.contains(drawCardPile)) {
@@ -111,45 +112,79 @@ extension SetCardGridView {
             drawCardPile.frame.origin = drawNewCardPoint
             addSubview(drawCardPile)
         } else {
-            animateCardObject(on: drawCardPile, to: drawNewCardPoint, with: cardWidth, and: cardHeight)
+            animateCardObject(on: drawCardPile, to: drawNewCardPoint, with: cardWidth, and: cardHeight, with: 0)
         }
         
         // layout the cards on the pre-determined points
         var temp = 0
         for card in currentCards {
-            card.frame.size = CGSize(width: cardWidth, height: cardHeight)
-            
             if subviews.contains(card){
-                //print("Old Card")
+                card.frame.size = CGSize(width: cardWidth, height: cardHeight)
+                if card.frame.origin != points[temp] {
+                    animateCardObject(on: card, to: points[temp], with: cardWidth, and: cardHeight, with: 0)
+                }
+                //card.frame.origin = points[temp]
+                card.tag = currentCards.index(of: card)!
+                card.isOpaque = false
+                temp += 1
+            }
+        }
+        
+        // deal new cards afterwards
+        var baseCardDealDelay = constants.cardReorderAnimationTime
+        for card in currentCards {
+            if !subviews.contains(card) {
                 
-                // we attempt to re-arrange the cards
-                animateCardObject(on: card, to: points[temp], with: cardWidth, and: cardHeight)
-                //animateCardObject(on: card, to: discardPilePoint)
-                
-            } else {
-                //print("new card")
+                // initially place the cards on the draw pile
+                card.frame.size = CGSize(width: cardWidth, height: cardHeight)
+                card.frame.origin = drawNewCardPoint
                 addSubview(card)
                 let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnCard))
                 gestureRecognizer.delegate = self
                 card.addGestureRecognizer(gestureRecognizer)
+                card.tag = currentCards.index(of: card)!
+                card.isOpaque = false
+                card.isFaceUp = false
+                
+                // deal it to the new location
+                dealNewCardsAnimations(on: card, to: points[temp], width: cardWidth, height: cardHeight, duration: constants.cardDealAnimationTime, delay: baseCardDealDelay)
+                baseCardDealDelay += constants.cardDealAnimationTime
+                
+                temp += 1
             }
-        
-            //card.frame.origin = points[temp]
-            card.tag = currentCards.index(of: card)!
-            card.isOpaque = false
-            temp += 1
         }
     }
     
-    private func animateCardObject(on card: SetCardView, to point: CGPoint, with width: CGFloat, and height: CGFloat) {
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
-                                                       delay: 0,
+    private func animateCardObject(on card: SetCardView, to point: CGPoint, with width: CGFloat, and height: CGFloat,
+                                   with delay: Double) {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: constants.cardReorderAnimationTime,
+                                                       delay: delay,
                                                        options: [],
                                                        animations: {
                                                            card.frame.origin = point
                                                            card.frame.size = CGSize(width: width, height: height)
                                                        },
                                                        completion: nil)
+    }
+    
+    private func dealNewCardsAnimations(on card: SetCardView, to point: CGPoint, width: CGFloat, height: CGFloat,
+                                        duration: Double, delay: Double) {
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration,
+                                                       delay: delay,
+                                                       options: [],
+                                                       animations: {
+                                                           card.frame.origin = point
+                                                           card.frame.size = CGSize(width: width, height: height)
+                                                        },
+                                                       completion: { finished in
+                                                        UIView.transition(with: card,
+                                                                          duration: constants.cardFlipTransitionTime,
+                                                                          options: .transitionFlipFromLeft,
+                                                                          animations: {card.isFaceUp = true},
+                                                                          completion: nil)
+        })
+        
     }
     
     private func determineBestSpacingBetweenCards(for width: CGFloat, and height: CGFloat, rows: Int, cols: Int) -> (CGFloat, CGFloat) {
@@ -220,5 +255,10 @@ extension SetCardGridView {
     private struct constants {
         static let cardWidthHeightRatio: CGFloat = 5 / 8
         static let minDistanceBetweenCards: CGFloat = 4
+        
+        // related to animation
+        static let cardReorderAnimationTime: Double = 0.2
+        static let cardDealAnimationTime: Double = 0.2
+        static let cardFlipTransitionTime: Double = 0.2
     }
 }
