@@ -86,6 +86,24 @@ extension SetViewController: TouchSetCardDelegate {
                 gameModel.attemptToSelect(on: cardIndex)
             }
         }
+        
+        // check if cards are matched when we select 3
+        if gameModel.selectedCards.count == 3, gameModel.checkIfCardsMatched() {
+            for card in gameModel.selectedCards {
+                let removeCardView = mapGameCardToSetCardViews[card]!
+                mapGameCardToSetCardViews.removeValue(forKey: card)
+                setCardGridView.removeCard(card: removeCardView)
+            }
+            gameModel.clearMatchedCards()
+        }
+        
+        updateViewFromModel()
+    }
+}
+
+extension SetViewController: DealSetCardDelegate {
+    func dealSetCard() {
+        gameModel.dealMoreCards()
         updateViewFromModel()
     }
 }
@@ -175,5 +193,9 @@ extension Dictionary where Value: Equatable {
 
 protocol TouchSetCardDelegate {
     func touchedSetCard(with currentCardIndex: Int)
+}
+
+protocol DealSetCardDelegate {
+    func dealSetCard()
 }
 

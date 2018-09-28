@@ -14,7 +14,14 @@ class SetCardGridView: UIView, UIGestureRecognizerDelegate {
     var discardPile = SetCardView()
     var drawCardPile = SetCardView()
     var delegate: TouchSetCardDelegate?
+    var dealDelegate: DealSetCardDelegate?
     
+    var globalDiscardPoint: CGPoint?
+    var globalCardSize: CGSize?
+    
+    lazy var animator = UIDynamicAnimator(referenceView: self)
+    lazy var cardBehavior = CardBehavior(in: animator)
+        
     override func layoutSubviews() {
         super.layoutSubviews()
         layoutCards()
@@ -25,22 +32,27 @@ class SetCardGridView: UIView, UIGestureRecognizerDelegate {
     @objc func handleTapOnCard(_ sender: AnyObject){
         if let test = sender.view?.tag { delegate?.touchedSetCard(with: test) }
     }
+    
+    // deal cards
+    @ objc func handleTapOnDealCards(_ sender: AnyObject){
+        dealDelegate?.dealSetCard()
+    }
 }
 
 extension SetCardGridView {
     
     func removeCard(card: SetCardView) {
         let removeIndex = currentCards.index(of: card)!
-        card.removeFromSuperview()
         currentCards.remove(at: removeIndex)
+        card.isSelected = false
+        cardBehavior.addItem(card)
+        card.gestureRecognizers?.forEach(card.removeGestureRecognizer(_:))
         
-        
-        // fade out temporary animator
-//        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
-//                                                       delay: 0,
-//                                                       options: [],
-//                                                       animations: { card.alpha = 0 },
-//                                                       completion: nil)
+        // put the card in the discard pile
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+            self?.cardBehavior.removeItem(card)
+            self?.discardPileAnimation(on: card)
+        })
         
         setNeedsLayout()
     }
@@ -62,6 +74,8 @@ extension SetCardGridView {
         let (rows, columns) = determineOptimalRowsColumnsWithExtraRowAdded()
         let (cardWidth, cardHeight) = determineCardDimensions(rows: rows, columns: columns)
         let (horinzontalSpacing, verticalSpacing) = determineBestSpacingBetweenCards(for: cardWidth, and: cardHeight, rows: rows, cols: columns)
+        
+        globalCardSize = CGSize(width: cardWidth, height: cardHeight)
         
         // layout points to place cards in advance based on how many
         // cards we have to layout, and the determined spacing between
@@ -86,6 +100,8 @@ extension SetCardGridView {
         
         let discardPilePoint = CGPoint(x: centerCardsOffset + cardWidth + horinzontalSpacing,
                                        y: CGFloat(rows - 1) * (cardHeight + verticalSpacing))
+        
+        globalDiscardPoint = discardPilePoint
         
         // place the discard and draw new card piles first
         discardPile.isFaceUp = false
@@ -155,6 +171,7 @@ extension SetCardGridView {
         }
     }
     
+    // used for moving cards from one point to another
     private func animateCardObject(on card: SetCardView, to point: CGPoint, with width: CGFloat, and height: CGFloat,
                                    with delay: Double) {
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: constants.cardReorderAnimationTime,
@@ -167,6 +184,7 @@ extension SetCardGridView {
                                                        completion: nil)
     }
     
+    // used for dealing cards from deck to the playing field
     private func dealNewCardsAnimations(on card: SetCardView, to point: CGPoint, width: CGFloat, height: CGFloat,
                                         duration: Double, delay: Double) {
         
@@ -185,6 +203,24 @@ extension SetCardGridView {
                                                                           completion: nil)
         })
         
+    }
+    
+    // used for discard cards after matches
+    private func discardPileAnimation(on card: SetCardView) {
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0, options: [], animations: { [weak self] in
+            if self?.globalDiscardPoint != nil {
+                card.transform = CGAffineTransform.identity
+                card.frame.origin = self!.globalDiscardPoint!
+            }
+            if self?.globalCardSize != nil {
+                card.frame.size = self!.globalCardSize!
+            }
+        }, completion: { finished in
+            UIView.transition(with: card, duration: 0.5, options:.transitionFlipFromLeft, animations: {card.isFaceUp = false}, completion: { finished in
+                card.removeFromSuperview()
+            })
+        })
     }
     
     private func determineBestSpacingBetweenCards(for width: CGFloat, and height: CGFloat, rows: Int, cols: Int) -> (CGFloat, CGFloat) {
@@ -228,8 +264,6 @@ extension SetCardGridView {
     private func determineCardDimensions(rows: Int, columns: Int) -> (CGFloat, CGFloat) {
         
         // account for the minimum spacing between cards
-        //let effectiveWidth = bounds.size.width - (CGFloat(currentCards.count) - 1) * constants.minDistanceBetweenCards
-        //let effectiveHeight = bounds.size.height - (CGFloat(currentCards.count) - 1) * constants.minDistanceBetweenCards
         let effectiveWidth = bounds.size.width - (CGFloat(columns) - 1) * constants.minDistanceBetweenCards
         let effectiveHeight = bounds.size.height - (CGFloat(rows) - 1) * constants.minDistanceBetweenCards
         
