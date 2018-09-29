@@ -32,6 +32,7 @@ class SetViewController: UIViewController {
         super.viewDidLoad()
         updateViewFromModel()
         setCardGridView.delegate = self
+        setCardGridView.dealDelegate = self
         
         MatchCardsButton.layer.borderWidth = 2.0
         MatchCardsButton.layer.borderColor = constantValues.buttonOutlineColor.cgColor
@@ -103,6 +104,7 @@ extension SetViewController: TouchSetCardDelegate {
 
 extension SetViewController: DealSetCardDelegate {
     func dealSetCard() {
+        print("deal set card from view controller")
         gameModel.dealMoreCards()
         updateViewFromModel()
     }

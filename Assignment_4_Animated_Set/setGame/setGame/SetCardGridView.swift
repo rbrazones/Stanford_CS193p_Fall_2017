@@ -36,6 +36,7 @@ class SetCardGridView: UIView, UIGestureRecognizerDelegate {
     // deal cards
     @ objc func handleTapOnDealCards(_ sender: AnyObject){
         dealDelegate?.dealSetCard()
+        print("handleTaponDealCards")
     }
 }
 
@@ -127,6 +128,9 @@ extension SetCardGridView {
             drawCardPile.isOpaque = false
             drawCardPile.frame.origin = drawNewCardPoint
             addSubview(drawCardPile)
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnDealCards(_:)))
+            gestureRecognizer.delegate = self
+            drawCardPile.addGestureRecognizer(gestureRecognizer)
         } else {
             animateCardObject(on: drawCardPile, to: drawNewCardPoint, with: cardWidth, and: cardHeight, with: 0)
         }
