@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9440BC91214F26C900064884 /* SetCardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440BC90214F26C900064884 /* SetCardGridView.swift */; };
 		9440BC95215DEA0B00064884 /* CardBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440BC94215DEA0B00064884 /* CardBehavior.swift */; };
+		9460405F21618190003102B0 /* ConcentrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9460405C21618190003102B0 /* ConcentrationModel.swift */; };
+		9460406021618190003102B0 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9460405D21618190003102B0 /* Card.swift */; };
+		9460406121618190003102B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9460405E21618190003102B0 /* ViewController.swift */; };
 		94AAD496214B8FB600D4E427 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AAD495214B8FB600D4E427 /* SetCardView.swift */; };
 		94F3D84A213E0A7600C345A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3D849213E0A7600C345A0 /* AppDelegate.swift */; };
 		94F3D84C213E0A7600C345A0 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3D84B213E0A7600C345A0 /* SetViewController.swift */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		9440BC90214F26C900064884 /* SetCardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardGridView.swift; sourceTree = "<group>"; };
 		9440BC94215DEA0B00064884 /* CardBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBehavior.swift; sourceTree = "<group>"; };
+		9460405C21618190003102B0 /* ConcentrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcentrationModel.swift; sourceTree = "<group>"; };
+		9460405D21618190003102B0 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9460405E21618190003102B0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94AAD495214B8FB600D4E427 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		94F3D846213E0A7600C345A0 /* setGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = setGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F3D849213E0A7600C345A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,9 @@
 				9440BC94215DEA0B00064884 /* CardBehavior.swift */,
 				94F3D84B213E0A7600C345A0 /* SetViewController.swift */,
 				94F3D84D213E0A7600C345A0 /* Main.storyboard */,
+				9460405D21618190003102B0 /* Card.swift */,
+				9460405C21618190003102B0 /* ConcentrationModel.swift */,
+				9460405E21618190003102B0 /* ViewController.swift */,
 				9440BC90214F26C900064884 /* SetCardGridView.swift */,
 				94AAD495214B8FB600D4E427 /* SetCardView.swift */,
 				94F3D852213E0A7B00C345A0 /* LaunchScreen.storyboard */,
@@ -158,9 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9460406121618190003102B0 /* ViewController.swift in Sources */,
 				94F3D85F2140C88C00C345A0 /* setGameModel.swift in Sources */,
+				9460406021618190003102B0 /* Card.swift in Sources */,
 				94AAD496214B8FB600D4E427 /* SetCardView.swift in Sources */,
 				94F3D84C213E0A7600C345A0 /* SetViewController.swift in Sources */,
+				9460405F21618190003102B0 /* ConcentrationModel.swift in Sources */,
 				94F3D85D2140C87300C345A0 /* setCard.swift in Sources */,
 				94F3D84A213E0A7600C345A0 /* AppDelegate.swift in Sources */,
 				9440BC91214F26C900064884 /* SetCardGridView.swift in Sources */,
