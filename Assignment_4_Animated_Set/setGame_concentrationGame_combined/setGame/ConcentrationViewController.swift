@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
 
     @IBOutlet private var cardButtons: [UIButton]!
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     @IBAction func newGamePress(_ sender: UIButton) {
         game.resetGame()
         game.shuffleDeck()
-        emojiChoices = determineTheme()
+        //emojiChoices = determineTheme()
         updateViewFromModel()
     }
     
@@ -45,24 +45,34 @@ class ViewController: UIViewController {
     // private - the number of cards is intimately tied to the UI
     private lazy var game = ConcentrationModel(numberOfPairsOfCards: numberOfPairsOfCards)
 
-    private lazy var emojiChoices: String = determineTheme()
+    //private lazy var emojiChoices: String = determineTheme()
 
-    func determineTheme() -> String {
-        // 6 possible themes
-        let possibleThemes = [
-            "😍🤓🤬😱🤯🤢👿🤗😷😭🤩🙃", // Faces Theme
-            "⚽️🏀🏈⚾️🎱🏉🏐🎾🏓🏑⛳️🏏", // Sports Theme
-            "🇧🇴🇧🇿🇧🇩🇦🇹🇦🇷🏁🏴🏳️🏳️‍🌈🇨🇿🇨🇾🇨🇬", // Flags Theme
-            "🍕🥪🥙🌮🍟🍔🌭🍖🥞🥓🥩🍗", // Food Theme
-            "🦈🐊🐅🐆🦏🐘🦍🦓🐪🐫🦒🐃", // Animals Theme
-            "🤲🤝✊🙏✍️💪🖐🤙👌👎👆🤟"  // Hands Theme
-        ]
-        
-        let randomArrayIndex = Int(arc4random_uniform(UInt32(possibleThemes.count)))
-        emoji.removeAll()
-        return possibleThemes[randomArrayIndex]
+//    func determineTheme() -> String {
+//        // 6 possible themes
+//        let possibleThemes = [
+//            "😍🤓🤬😱🤯🤢👿🤗😷😭🤩🙃", // Faces Theme
+//            "⚽️🏀🏈⚾️🎱🏉🏐🎾🏓🏑⛳️🏏", // Sports Theme
+//            "🇧🇴🇧🇿🇧🇩🇦🇹🇦🇷🏁🏴🏳️🏳️‍🌈🇨🇿🇨🇾🇨🇬", // Flags Theme
+//            "🍕🥪🥙🌮🍟🍔🌭🍖🥞🥓🥩🍗", // Food Theme
+//            "🦈🐊🐅🐆🦏🐘🦍🦓🐪🐫🦒🐃", // Animals Theme
+//            "🤲🤝✊🙏✍️💪🖐🤙👌👎👆🤟"  // Hands Theme
+//        ]
+//
+//        let randomArrayIndex = Int(arc4random_uniform(UInt32(possibleThemes.count)))
+//        emoji.removeAll()
+//        return possibleThemes[randomArrayIndex]
+//    }
+
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? ""
+            emoji = [:]
+            updateViewFromModel()
+        }
     }
-
+    
+    private var emojiChoices = "🦇😱🙀😈🎃👻🍭🍬🍎"
+    
     var numberOfPairsOfCards: Int {
         get {
             return (cardButtons.count + 1) / 2
@@ -91,19 +101,21 @@ class ViewController: UIViewController {
     func updateViewFromModel() {
         // indices is method of array that returns countable range of all
         // indices in the array
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            if card.isFaceUp {
-                button.setTitle(emoji(for: card), for: UIControlState.normal)
-                button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            } else {
-                button.setTitle("", for: UIControlState.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        if cardButtons != nil {
+            for index in cardButtons.indices {
+                let button = cardButtons[index]
+                let card = game.cards[index]
+                if card.isFaceUp {
+                    button.setTitle(emoji(for: card), for: UIControlState.normal)
+                    button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                } else {
+                    button.setTitle("", for: UIControlState.normal)
+                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+                }
             }
         }
-        updateFlipCountLabel()
-        updateScoreLabel()
+        if flipCountLabel != nil {updateFlipCountLabel()}
+        if scoreLabel != nil {updateScoreLabel()}
     }
     
     private var emoji = Dictionary<Card, String>()
