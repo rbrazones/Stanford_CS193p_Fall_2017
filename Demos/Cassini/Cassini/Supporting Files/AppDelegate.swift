@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  creatingSetCardView
+//  Cassini
 //
-//  Created by Ryan Brazones on 9/12/18.
+//  Created by Ryan Brazones on 10/1/18.
 //  Copyright © 2018 greenred. All rights reserved.
 //
 

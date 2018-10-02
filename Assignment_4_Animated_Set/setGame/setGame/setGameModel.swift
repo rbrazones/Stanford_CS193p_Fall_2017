@@ -48,8 +48,8 @@ class setGameModel {
         let card2 = gameCards[selectedCards[1]]
         let card3 = gameCards[selectedCards[2]]
         
-        //return setCard.formsSet(cardA: card1, cardB: card2, cardC: card3)
-        return true // temporary for now while we test out animations
+        return setCard.formsSet(cardA: card1, cardB: card2, cardC: card3)
+        //return true // temporary for now while we test out animations
     }
     
     func clearMatchedCards() {

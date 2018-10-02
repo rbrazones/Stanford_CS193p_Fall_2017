@@ -59,7 +59,7 @@ struct setCard {
         func satisfiesSetCriteria(input1: String, input2: String, input3: String) -> Bool {
             if (input1 == input2) && (input2 == input3) {
                 return true
-            } else if (input1 != input2) && (input2 != input3){
+            } else if (input1 != input2) && (input2 != input3) && (input1 != input3){
                 return true
             } else {
                 return false

@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		94501041214A402F008910D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94501040214A402F008910D2 /* AppDelegate.swift */; };
-		94501043214A402F008910D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94501042214A402F008910D2 /* ViewController.swift */; };
-		94501046214A402F008910D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94501044214A402F008910D2 /* Main.storyboard */; };
-		94501048214A4035008910D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94501047214A4035008910D2 /* Assets.xcassets */; };
-		9450104B214A4035008910D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94501049214A4035008910D2 /* LaunchScreen.storyboard */; };
+		9460407321633600003102B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9460407221633600003102B0 /* AppDelegate.swift */; };
+		9460407821633600003102B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9460407621633600003102B0 /* Main.storyboard */; };
+		9460407A21633604003102B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9460407921633604003102B0 /* Assets.xcassets */; };
+		9460407D21633604003102B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9460407B21633604003102B0 /* LaunchScreen.storyboard */; };
+		9460408621633661003102B0 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9460408521633661003102B0 /* ImageViewController.swift */; };
+		9460408821633A0E003102B0 /* DemoURLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9460408721633A0E003102B0 /* DemoURLS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9450103D214A402F008910D2 /* creatingSetCardView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creatingSetCardView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		94501040214A402F008910D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94501042214A402F008910D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		94501045214A402F008910D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94501047214A4035008910D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9450104A214A4035008910D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9450104C214A4035008910D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9460406F21633600003102B0 /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9460407221633600003102B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9460407721633600003102B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9460407921633604003102B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9460407C21633604003102B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9460407E21633604003102B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9460408521633661003102B0 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		9460408721633A0E003102B0 /* DemoURLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoURLS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9450103A214A402F008910D2 /* Frameworks */ = {
+		9460406C21633600003102B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +37,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		94501034214A402F008910D2 = {
+		9460406621633600003102B0 = {
 			isa = PBXGroup;
 			children = (
-				9450103F214A402F008910D2 /* creatingSetCardView */,
-				9450103E214A402F008910D2 /* Products */,
+				9460407121633600003102B0 /* Cassini */,
+				9460407021633600003102B0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9450103E214A402F008910D2 /* Products */ = {
+		9460407021633600003102B0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9450103D214A402F008910D2 /* creatingSetCardView.app */,
+				9460406F21633600003102B0 /* Cassini.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9450103F214A402F008910D2 /* creatingSetCardView */ = {
+		9460407121633600003102B0 /* Cassini */ = {
 			isa = PBXGroup;
 			children = (
-				94501040214A402F008910D2 /* AppDelegate.swift */,
-				94501042214A402F008910D2 /* ViewController.swift */,
-				94501044214A402F008910D2 /* Main.storyboard */,
-				94501047214A4035008910D2 /* Assets.xcassets */,
-				94501049214A4035008910D2 /* LaunchScreen.storyboard */,
-				9450104C214A4035008910D2 /* Info.plist */,
+				9460408521633661003102B0 /* ImageViewController.swift */,
+				9460408721633A0E003102B0 /* DemoURLS.swift */,
+				9460407621633600003102B0 /* Main.storyboard */,
+				9460408421633612003102B0 /* Supporting Files */,
+				9460407E21633604003102B0 /* Info.plist */,
 			);
-			path = creatingSetCardView;
+			path = Cassini;
+			sourceTree = "<group>";
+		};
+		9460408421633612003102B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9460407221633600003102B0 /* AppDelegate.swift */,
+				9460407921633604003102B0 /* Assets.xcassets */,
+				9460407B21633604003102B0 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9450103C214A402F008910D2 /* creatingSetCardView */ = {
+		9460406E21633600003102B0 /* Cassini */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9450104F214A4035008910D2 /* Build configuration list for PBXNativeTarget "creatingSetCardView" */;
+			buildConfigurationList = 9460408121633604003102B0 /* Build configuration list for PBXNativeTarget "Cassini" */;
 			buildPhases = (
-				94501039214A402F008910D2 /* Sources */,
-				9450103A214A402F008910D2 /* Frameworks */,
-				9450103B214A402F008910D2 /* Resources */,
+				9460406B21633600003102B0 /* Sources */,
+				9460406C21633600003102B0 /* Frameworks */,
+				9460406D21633600003102B0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = creatingSetCardView;
-			productName = creatingSetCardView;
-			productReference = 9450103D214A402F008910D2 /* creatingSetCardView.app */;
+			name = Cassini;
+			productName = Cassini;
+			productReference = 9460406F21633600003102B0 /* Cassini.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		94501035214A402F008910D2 /* Project object */ = {
+		9460406721633600003102B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = greenred;
 				TargetAttributes = {
-					9450103C214A402F008910D2 = {
+					9460406E21633600003102B0 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 94501038214A402F008910D2 /* Build configuration list for PBXProject "creatingSetCardView" */;
+			buildConfigurationList = 9460406A21633600003102B0 /* Build configuration list for PBXProject "Cassini" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,54 +118,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 94501034214A402F008910D2;
-			productRefGroup = 9450103E214A402F008910D2 /* Products */;
+			mainGroup = 9460406621633600003102B0;
+			productRefGroup = 9460407021633600003102B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9450103C214A402F008910D2 /* creatingSetCardView */,
+				9460406E21633600003102B0 /* Cassini */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9450103B214A402F008910D2 /* Resources */ = {
+		9460406D21633600003102B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9450104B214A4035008910D2 /* LaunchScreen.storyboard in Resources */,
-				94501048214A4035008910D2 /* Assets.xcassets in Resources */,
-				94501046214A402F008910D2 /* Main.storyboard in Resources */,
+				9460407D21633604003102B0 /* LaunchScreen.storyboard in Resources */,
+				9460407A21633604003102B0 /* Assets.xcassets in Resources */,
+				9460407821633600003102B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		94501039214A402F008910D2 /* Sources */ = {
+		9460406B21633600003102B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94501043214A402F008910D2 /* ViewController.swift in Sources */,
-				94501041214A402F008910D2 /* AppDelegate.swift in Sources */,
+				9460408621633661003102B0 /* ImageViewController.swift in Sources */,
+				9460407321633600003102B0 /* AppDelegate.swift in Sources */,
+				9460408821633A0E003102B0 /* DemoURLS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		94501044214A402F008910D2 /* Main.storyboard */ = {
+		9460407621633600003102B0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				94501045214A402F008910D2 /* Base */,
+				9460407721633600003102B0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		94501049214A4035008910D2 /* LaunchScreen.storyboard */ = {
+		9460407B21633604003102B0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9450104A214A4035008910D2 /* Base */,
+				9460407C21633604003102B0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -162,7 +174,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9450104D214A4035008910D2 /* Debug */ = {
+		9460407F21633604003102B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -222,7 +234,7 @@
 			};
 			name = Debug;
 		};
-		9450104E214A4035008910D2 /* Release */ = {
+		9460408021633604003102B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,36 +288,36 @@
 			};
 			name = Release;
 		};
-		94501050214A4035008910D2 /* Debug */ = {
+		9460408221633604003102B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AG7899H7SM;
-				INFOPLIST_FILE = creatingSetCardView/Info.plist;
+				INFOPLIST_FILE = Cassini/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ios.ryan.creatingSetCardView;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.ryan.Cassini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		94501051214A4035008910D2 /* Release */ = {
+		9460408321633604003102B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AG7899H7SM;
-				INFOPLIST_FILE = creatingSetCardView/Info.plist;
+				INFOPLIST_FILE = Cassini/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ios.ryan.creatingSetCardView;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.ryan.Cassini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,25 +327,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		94501038214A402F008910D2 /* Build configuration list for PBXProject "creatingSetCardView" */ = {
+		9460406A21633600003102B0 /* Build configuration list for PBXProject "Cassini" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9450104D214A4035008910D2 /* Debug */,
-				9450104E214A4035008910D2 /* Release */,
+				9460407F21633604003102B0 /* Debug */,
+				9460408021633604003102B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9450104F214A4035008910D2 /* Build configuration list for PBXNativeTarget "creatingSetCardView" */ = {
+		9460408121633604003102B0 /* Build configuration list for PBXNativeTarget "Cassini" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				94501050214A4035008910D2 /* Debug */,
-				94501051214A4035008910D2 /* Release */,
+				9460408221633604003102B0 /* Debug */,
+				9460408321633604003102B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 94501035214A402F008910D2 /* Project object */;
+	rootObject = 9460406721633600003102B0 /* Project object */;
 }

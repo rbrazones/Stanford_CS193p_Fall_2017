@@ -25,40 +25,14 @@ class SetViewController: UIViewController {
     }
     
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var dealCardsButton: UIButton!
-    @IBOutlet weak var MatchCardsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViewFromModel()
         setCardGridView.delegate = self
         setCardGridView.dealDelegate = self
-        
-        MatchCardsButton.layer.borderWidth = 2.0
-        MatchCardsButton.layer.borderColor = constantValues.buttonOutlineColor.cgColor
-        MatchCardsButton.layer.cornerRadius = 8.0
-        dealCardsButton.layer.borderWidth = 2.0
-        dealCardsButton.layer.borderColor = constantValues.buttonOutlineColor.cgColor
-        dealCardsButton.layer.cornerRadius = 8.0
     }
-    
-    @IBAction func touchMatchCardsButton(_ sender: UIButton) {
-        if gameModel.checkIfCardsMatched() {
-            for card in gameModel.selectedCards {
-                let removeCardView = mapGameCardToSetCardViews[card]!
-                mapGameCardToSetCardViews.removeValue(forKey: card)
-                setCardGridView.removeCard(card: removeCardView)
-            }
-            gameModel.clearMatchedCards()
-            updateViewFromModel()
-        }
-    }
-    
-    @IBAction func touchDeal3CardsButton(_ sender: UIButton) {
-        gameModel.dealMoreCards()
-        updateViewFromModel()
-    }
-    
+
     @objc func handleSwipDown(byReactingTo swipeRecognizer: UISwipeGestureRecognizer){
         if swipeRecognizer.state == .ended {
             gameModel.dealMoreCards()
@@ -114,32 +88,8 @@ extension SetViewController {
     
     private func updateViewFromModel() {
         
-        func determineMatchButtonStatus() {
-            if gameModel.selectedCards.count == 3 {
-                // enable the button
-                MatchCardsButton.layer.backgroundColor = constantValues.matchButtonColor.withAlphaComponent(1.00).cgColor
-                MatchCardsButton.isEnabled = true
-            } else {
-                // disable the button
-                MatchCardsButton.layer.backgroundColor = constantValues.matchButtonColor.withAlphaComponent(0.5).cgColor
-                MatchCardsButton.isEnabled = false
-            }
-        }
-        
         func updateScore() {
             scoreLabel.text = "Score: \(gameModel.score)"
-        }
-        
-        func determineDealButtonStatus(){
-            if gameModel.availableCards.count >= 3 {
-                // enable the button
-                dealCardsButton.layer.backgroundColor = constantValues.dealCardsButtonColor.withAlphaComponent(1.00).cgColor
-                dealCardsButton.isEnabled = true
-            } else {
-                // disable the button
-                dealCardsButton.layer.backgroundColor = constantValues.dealCardsButtonColor.withAlphaComponent(0.5).cgColor
-                dealCardsButton.isEnabled = false
-            }
         }
         
         for card in gameModel.currentCards {
@@ -159,8 +109,6 @@ extension SetViewController {
             }
         }
         
-        determineMatchButtonStatus()
-        determineDealButtonStatus()
         updateScore()
     }
     

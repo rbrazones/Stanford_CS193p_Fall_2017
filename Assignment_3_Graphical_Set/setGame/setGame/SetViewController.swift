@@ -103,7 +103,7 @@ extension SetViewController {
                 MatchCardsButton.layer.backgroundColor = constantValues.matchButtonColor.withAlphaComponent(1.00).cgColor
                 MatchCardsButton.isEnabled = true
             } else {
-                // disable the button
+                // disable the button/Users/ryan/Desktop/Stanford_CS193p_Fall_2017/Assignment_4_Animated_Set/setGame_concentrationGame_combined/setGame/ViewController.swift
                 MatchCardsButton.layer.backgroundColor = constantValues.matchButtonColor.withAlphaComponent(0.5).cgColor
                 MatchCardsButton.isEnabled = false
             }
