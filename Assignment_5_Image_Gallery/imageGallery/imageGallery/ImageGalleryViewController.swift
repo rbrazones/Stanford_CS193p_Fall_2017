@@ -8,24 +8,53 @@
 
 import UIKit
 
-class ImageGalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIDropInteractionDelegate {
+class ImageGalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIDropInteractionDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var galleryCollectionView: UICollectionView! {
         didSet {
             galleryCollectionView.delegate = self
             galleryCollectionView.dataSource = self
             galleryCollectionView.addInteraction(UIDropInteraction(delegate: self))
+            
+            // gesture recognizer
+            let handler = #selector(changeCellWidthFromPinch(byReactingTo:))
+            let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: handler)
+            galleryCollectionView.addGestureRecognizer(pinchRecognizer)
+            
+        }
+    }
+    
+    @objc func changeCellWidthFromPinch(byReactingTo pinchRecognizer: UIPinchGestureRecognizer){
+        switch pinchRecognizer.state {
+        case .ended, .changed:
+            galleryCellWidth *= pinchRecognizer.scale
+            pinchRecognizer.scale = 1
+        default:
+            break
+        }
+        
+        print(galleryCellWidth)
+    }
+    
+    var galleryCellWidth: CGFloat = 200 {
+        didSet {
+            if galleryCollectionView != nil {
+                galleryCollectionView.setNeedsLayout()
+                galleryCollectionView.collectionViewLayout.invalidateLayout()
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-    
+
     private var imageURLS = [URL]()
-    
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: galleryCellWidth, height: galleryCollectionView.bounds.size.height)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageURLS.count
