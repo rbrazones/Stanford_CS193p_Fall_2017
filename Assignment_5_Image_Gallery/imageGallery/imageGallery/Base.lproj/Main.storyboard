@@ -35,21 +35,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="326" height="647"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fr6-k8-072">
-                                                    <rect key="frame" x="43" y="305" width="240" height="37"/>
-                                                </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvA-N0-n8R" customClass="customImageView" customModule="imageGallery" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="109"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9go-hi-keH">
+                                                    <rect key="frame" x="153" y="313.5" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Fr6-k8-072" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RIQ-JC-8y5" secondAttribute="top" id="5Lo-DM-3AZ"/>
-                                            <constraint firstItem="Fr6-k8-072" firstAttribute="centerX" secondItem="RIQ-JC-8y5" secondAttribute="centerX" id="Jad-ef-xdA"/>
-                                            <constraint firstItem="Fr6-k8-072" firstAttribute="centerY" secondItem="RIQ-JC-8y5" secondAttribute="centerY" id="LPp-WR-WgG"/>
-                                            <constraint firstAttribute="bottom" secondItem="Fr6-k8-072" secondAttribute="bottom" constant="305" id="bT2-2r-urZ"/>
-                                            <constraint firstItem="Fr6-k8-072" firstAttribute="leading" secondItem="RIQ-JC-8y5" secondAttribute="leading" constant="43" id="iro-di-JKW"/>
-                                            <constraint firstAttribute="trailing" secondItem="Fr6-k8-072" secondAttribute="trailing" constant="43" id="uT1-tZ-jf2"/>
+                                            <constraint firstItem="9go-hi-keH" firstAttribute="centerX" secondItem="RIQ-JC-8y5" secondAttribute="centerX" id="ddA-w5-CMH"/>
+                                            <constraint firstItem="9go-hi-keH" firstAttribute="centerY" secondItem="RIQ-JC-8y5" secondAttribute="centerY" id="ydF-jd-ZUj"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="Fr6-k8-072" id="Bej-SV-6rr"/>
+                                            <outlet property="imageLoadingIndicator" destination="9go-hi-keH" id="VpO-u3-nwR"/>
+                                            <outlet property="imageView" destination="DvA-N0-n8R" id="k4X-5L-3ah"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
