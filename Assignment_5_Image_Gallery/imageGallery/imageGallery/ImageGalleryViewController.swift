@@ -68,10 +68,8 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDelegate, UI
         if let finalCell = cell as? imageGaleryCollectionViewCell {
             finalCell.imageURL = imageURL
         }
-        
-        //if let galleryCell as? imageGaleryCollectionViewCell {
-        //}
-        return cell // fix this later
+
+        return cell 
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {

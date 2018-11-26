@@ -9,14 +9,7 @@
 import UIKit
 
 class imageGaleryCollectionViewCell: UICollectionViewCell {
-    /*
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            print("didSet imageView")
-            adjustBounds()
-        }
-    }
-    */
+
     @IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var imageView: customImageView! {
@@ -29,9 +22,6 @@ class imageGaleryCollectionViewCell: UICollectionViewCell {
     
     override var bounds: CGRect {
         didSet {
-            
-            print("bounds change - CELL")
-            
             adjustBounds()
         }
     }
@@ -41,11 +31,7 @@ class imageGaleryCollectionViewCell: UICollectionViewCell {
     private func adjustBounds() {
         if imageView != nil && imageView.backgroundImage != nil {
             
-            print("adjustBounds()")
-            
             widthToHeightRatio = imageView.backgroundImage!.size.width / imageView.backgroundImage!.size.height
-            
-            print("widthheighratio = \(widthToHeightRatio)")
             
             // if the cell exceeds the width of the image,
             // just set imageView width to image width
@@ -55,9 +41,6 @@ class imageGaleryCollectionViewCell: UICollectionViewCell {
                 let tempHeight = tempWidth / widthToHeightRatio
                 let origin = CGPoint(x: bounds.midX - tempWidth / 2, y: bounds.midY - tempHeight / 2)
                 imageView!.frame = CGRect(origin: origin, size: CGSize(width: tempWidth, height: tempHeight))
-                
-                //imageView!.bounds.size.width = imageView.backgroundImage!.size.width
-                //imageView!.bounds.size.height = imageView.backgroundImage!.size.height // this needs to be better
             }
             
             // otherwise we need to scale down the imageView
@@ -67,21 +50,37 @@ class imageGaleryCollectionViewCell: UICollectionViewCell {
                 let origin = CGPoint(x: bounds.midX - tempWidth / 2, y: bounds.midY - tempHeight / 2)
                 imageView!.frame = CGRect(origin: origin, size: CGSize(width: tempWidth, height: tempHeight))
             }
-            
         }
-        //setNeedsLayout()
     }
     
     var imageFetcher: ImageFetcher!
     
+    var previousImageURL: URL!
+    
     var imageURL: URL! {
         didSet {
             if imageURL != nil {
+                
+                // get rid of the old image if it is not what we are requesting
+                // zero image view, and show the loading indicator as well
+                if imageURL != previousImageURL {
+                    imageView.backgroundImage = nil
+                    imageLoadingIndicator.startAnimating()
+                    imageLoadingIndicator.isHidden = false
+                    imageView.bounds = CGRect.zero
+                }
+                
                 imageFetcher = ImageFetcher(){ (url, image) in
                     DispatchQueue.main.async {
-                        self.imageLoadingIndicator.stopAnimating()
-                        self.imageView.backgroundImage = image
-                        self.adjustBounds()
+                        // make sure we have the correct image
+                        if url == self.imageURL {
+                            self.imageLoadingIndicator.stopAnimating()
+                            self.imageView.backgroundImage = image
+                            self.adjustBounds()
+                            self.previousImageURL = url
+                        } else {
+                            print("image mismatch occurring")
+                        }
                     }
                 }
                 self.imageFetcher.fetch(self.imageURL!)
