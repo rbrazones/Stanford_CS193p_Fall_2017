@@ -10,7 +10,7 @@ import UIKit
 
 class imageGaleryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
+    //@IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var imageView: customImageView! {
         didSet {
@@ -60,13 +60,8 @@ class imageGaleryCollectionViewCell: UICollectionViewCell {
     var imageURL: URL! {
         didSet {
             if imageURL != nil {
-                
-                // get rid of the old image if it is not what we are requesting
-                // zero image view, and show the loading indicator as well
                 if imageURL != previousImageURL {
                     imageView.backgroundImage = nil
-                    imageLoadingIndicator.startAnimating()
-                    imageLoadingIndicator.isHidden = false
                     imageView.bounds = CGRect.zero
                 }
                 
@@ -74,7 +69,6 @@ class imageGaleryCollectionViewCell: UICollectionViewCell {
                     DispatchQueue.main.async {
                         // make sure we have the correct image
                         if url == self.imageURL {
-                            self.imageLoadingIndicator.stopAnimating()
                             self.imageView.backgroundImage = image
                             self.adjustBounds()
                             self.previousImageURL = url
