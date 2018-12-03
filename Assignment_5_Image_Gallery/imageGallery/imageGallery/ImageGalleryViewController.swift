@@ -36,8 +36,6 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDelegate, UI
         default:
             break
         }
-        
-        print(galleryCellWidth)
     }
     
     var galleryCellWidth: CGFloat = 200 {
@@ -55,6 +53,7 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDelegate, UI
     }
 
     @objc private func handleTapOnCell(sender: UITapGestureRecognizer) {
+        
         guard let indexPath = self.galleryCollectionView?.indexPathForItem(at: sender.location(in: self.galleryCollectionView)) else { return }
         guard let cell = galleryCollectionView?.cellForItem(at: indexPath) else { return }
         guard let finalCell = cell as? imageGaleryCollectionViewCell else { return }

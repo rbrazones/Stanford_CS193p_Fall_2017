@@ -49,6 +49,7 @@ extension ImageScrollViewController: SignalImageLoadedDelegate {
         centerScrollView?.contentSize = size
         centerScrollViewWidth.constant = size.width
         centerScrollViewHeight.constant = size.height
+        centerScrollView.zoomScale = min(holdingView.bounds.width / size.width, holdingView.bounds.height / size.height)
     }
 }
 
