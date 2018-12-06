@@ -11,6 +11,7 @@
 		948F755D21B34E62001181C2 /* ImageScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F755C21B34E61001181C2 /* ImageScrollViewController.swift */; };
 		948F755F21B4859D001181C2 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F755E21B4859D001181C2 /* ImageScrollView.swift */; };
 		948F756121B4A650001181C2 /* customImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F756021B4A650001181C2 /* customImageView.swift */; };
+		948F756321B8D478001181C2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F756221B8D478001181C2 /* TableViewController.swift */; };
 		94E45FF4219BBAD600D51FF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45FF3219BBAD600D51FF7 /* AppDelegate.swift */; };
 		94E45FF9219BBAD600D51FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E45FF7219BBAD600D51FF7 /* Main.storyboard */; };
 		94E45FFB219BBADB00D51FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E45FFA219BBADB00D51FF7 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		948F755C21B34E61001181C2 /* ImageScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollViewController.swift; sourceTree = "<group>"; };
 		948F755E21B4859D001181C2 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		948F756021B4A650001181C2 /* customImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customImageView.swift; sourceTree = "<group>"; };
+		948F756221B8D478001181C2 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		94E45FF0219BBAD600D51FF7 /* imageGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E45FF3219BBAD600D51FF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94E45FF8219BBAD600D51FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				94E46007219BC79600D51FF7 /* imageGaleryCollectionViewCell.swift */,
 				948F755A21B333E3001181C2 /* placeholderCollectionViewCell.swift */,
 				948F755C21B34E61001181C2 /* ImageScrollViewController.swift */,
+				948F756221B8D478001181C2 /* TableViewController.swift */,
 				94E45FFA219BBADB00D51FF7 /* Assets.xcassets */,
 				94E45FFC219BBADB00D51FF7 /* LaunchScreen.storyboard */,
 				94E45FFF219BBADB00D51FF7 /* Info.plist */,
@@ -160,6 +163,7 @@
 				94E46006219BC5F500D51FF7 /* ImageGalleryViewController.swift in Sources */,
 				948F755F21B4859D001181C2 /* ImageScrollView.swift in Sources */,
 				948F755D21B34E62001181C2 /* ImageScrollViewController.swift in Sources */,
+				948F756321B8D478001181C2 /* TableViewController.swift in Sources */,
 				94E45FF4219BBAD600D51FF7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

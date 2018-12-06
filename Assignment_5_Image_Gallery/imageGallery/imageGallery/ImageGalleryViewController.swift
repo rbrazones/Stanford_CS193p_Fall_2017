@@ -63,7 +63,7 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDelegate, UI
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
     
-    private var imageURLS = [URL]()
+    var imageURLS = [URL]()
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: galleryCellWidth, height: galleryCollectionView.bounds.size.height)
